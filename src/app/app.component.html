@@ -31,7 +31,7 @@
                   </td>
                   <td>
                       <button onclick="document.getElementById('getFile').click()">Añadir Excel</button>
-                      <input type='file' id="getFile" style="display:none" accept=".csv, .xlsx">
+                      <input type='file' id="getFile" style="display:none" accept=".csv, .xlsx" (change)="onChange($event)">
                   </td>
           </table>
           <table id="tabla2">
