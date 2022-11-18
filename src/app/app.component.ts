@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { AppService } from './app.service'
-import { FormGroup, FormControl, Validators} from '@angular/forms'
+import { AppService } from './app.service';
+import * as dfd from "danfojs";
 
 
 @Component({
@@ -24,7 +24,11 @@ export class AppComponent implements OnInit {
   userCount = 0*/
   ngOnInit(): void {
     const val = this.appService.testMethod()
-    console.log("Value: ", val);
+    //console.log("Value: ", val);
+    const tf = dfd.tensorflow //get tensorflow lib from danfo
+    let tensor_arr = tf.tensor([12,34,56,2])
+    let s = new dfd.Series(tensor_arr)
+    s.print()
   }
 
 
