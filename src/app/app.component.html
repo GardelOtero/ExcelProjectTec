@@ -8,19 +8,78 @@
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
 
-<div class="content" role="main">
-  <h1>Subir Archivos de Excel y CSV</h1>
-  <button class="flat">Importar Archivo</button>
+<header>
+  <nav>
+      <ul>
+          <li><a href="#">Mis proyectos</a></li>
+          <li><a href="#">Tablero</a></li>
+          <li><a href="#">Alertas</a></li>
+          <li><a href="#">Polígonos</a></li>
+          <li><a href="#">Usuarios</a></li>
+          <li><a href="#">Cuenta</a></li>
+      </ul>
+  </nav>
+</header>
 
-</div>
+<body>
+  <div class = "row">
+      <div class="column">
+          <table id="tabla1">
+              <tr>
+                  <td>
+                      <strong>Mis Polígonos</strong>
+                  </td>
+                  <td>
+                      <button onclick="document.getElementById('getFile').click()">Añadir Excel</button>
+                      <input type='file' id="getFile" style="display:none" accept=".csv, .xlsx">
+                  </td>
+          </table>
+          <table id="tabla2">
+              <tr>
+                  <td>
+                      <input type="text" placeholder="Search..">
+                  </td>
+              </tr>
+          </table>
 
-<script>
-  const tf = dfd.tensorflow //get tensorflow lib from danfo
-  let tensor_arr = tf.tensor([12,34,56,2])
-  let s = new dfd.Series(tensor_arr)
-  s.print()
+          <table id="tabla3">
+              <tr>
+                  <td>
+                      <button id="nuevopoli">
+                          + Nuevo poligono
+                      </button>
+                  </td>
+                  <td>
+                      <button id="nuevogrupo">
+                          + Nuevo grupo
+                      </button>
+                  </td>
+              </tr>
+          </table>
 
-</script>
+          <table id="tabla4">
+              <tr>
+                  <td>
+                      circulo
+                  </td>
+                  <td id="NombreGrupo">
+                      Sin Grupo
+                  </td>
+                  <td>
+                      cantidad
+                  </td>
+                  <td>
+                      editar
+                  </td>
+              </tr>
+          </table>
+
+          <div id="map"></div>
+
+      </div>
+  </div>
+</body>
+
 
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->

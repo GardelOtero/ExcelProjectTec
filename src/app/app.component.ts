@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from './app.service';
 import * as dfd from "danfojs";
+import * as L from 'leaflet';
 
 
 @Component({
@@ -29,6 +30,16 @@ export class AppComponent implements OnInit {
     let tensor_arr = tf.tensor([12,34,56,2])
     let s = new dfd.Series(tensor_arr)
     s.print()
+
+    var map = L.map('map').setView([29.075, -110.95833333333334], 12);
+
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map);
+
+
+
   }
 
 
