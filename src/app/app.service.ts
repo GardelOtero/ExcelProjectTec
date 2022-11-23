@@ -1,11 +1,13 @@
 import { Injectable } from '@angular/core';
 import * as dfd from "danfojs";
 import * as L from 'leaflet';
+import axios from 'axios';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AppService {
+  //Esto puede terminar siendo innecesario O estar mal hecho
   TYPE_XLSX: string = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
   TYPE_CSV: string = "text/csv";
 
@@ -33,12 +35,16 @@ export class AppService {
       dfd.readExcel(file).then((df: any) => {
 
         df.print();
+
+        this.testAxiosGet(361);
       });
     } else if(validation === 2){
 
       dfd.readCSV(file).then((df: any) => {
 
         df.print();
+
+        this.testAxiosGet(61);
       });
     }
     else {
@@ -56,5 +62,18 @@ export class AppService {
       return 2;
 
     return 0;
+  }
+
+  testAxiosGet(id: number): void{
+    axios.get('https://rickandmortyapi.com/api/character/' + id)
+          .then(function (response) {
+            console.log(response.data);
+          })
+          .catch(function (error) {
+            console.log(error);
+          })
+          .finally(function () {
+            console.log('Esto se ejecuta siempre, haya habido error o no');
+          });
   }
 }
