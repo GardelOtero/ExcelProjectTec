@@ -11,7 +11,7 @@ header {
 }
 
 nav {
-    margin-left: 56%;
+    margin-left: 55%;
     float:left;
 }
 
@@ -23,12 +23,12 @@ nav ul{
 nav ul li{
     float: left;
     font-family:Arial, Helvetica, sans-serif;;
-    font-size:20px;
+    font-size:25px;
 }
 
 nav ul li a{
     display: block;
-    padding: 20px;
+    padding: 25px;
     color: #fff;
     text-decoration: none;
 }
@@ -92,7 +92,7 @@ table {
 
 #tabla1 button {
     background-color: lightblue;
-    font-size: 19px;
+    font-size: 24px;
     width: 100%;
 }
 
@@ -103,7 +103,7 @@ table {
 
 #tabla2 input {
     width:98.5%;
-    font-size: 19px;
+    font-size: 25px;
 }
 
 #tabla3 {
@@ -113,7 +113,7 @@ table {
 
 #tabla3 button {
     width: 100%;
-    font-size: 16px;
+    font-size: 20px;
 }
 
 #nuevopoli {
@@ -131,7 +131,7 @@ table {
 #tabla4 {
     margin-top: 5%;
     margin-left: -100%;
-    font-size: 18px;
+    font-size: 22px;
 }
 
 /* 
@@ -140,8 +140,8 @@ table {
 
 #map { 
     background-color: black;
-    height: 830px;
-    width: 1152px;
+    height: 860px;
+    width: 1270px;
     left: 200%;
     top: -37.8%;
 }
