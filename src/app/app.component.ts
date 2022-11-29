@@ -24,7 +24,7 @@ export class AppComponent implements OnInit {
 
     const file = fileEvent.target.files[0];
 
-    console.log(file);
+    //console.log(file);
     
     this.appService.printExcelDF(file);
   }

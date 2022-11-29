@@ -36,7 +36,7 @@ export class AppService {
 
         df.print();
 
-        this.testAxiosGet(361);
+        //this.testAxiosGet(361);
       });
     } else if(validation === 2){
 
@@ -44,7 +44,7 @@ export class AppService {
 
         df.print();
 
-        this.testAxiosGet(61);
+        //this.testAxiosGet(61);
       });
     }
     else {
