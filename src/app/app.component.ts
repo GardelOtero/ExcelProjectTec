@@ -26,6 +26,6 @@ export class AppComponent implements OnInit {
 
     //console.log(file);
     
-    this.appService.printExcelDF(file);
+    this.appService.readInfoToDF(file);
   }
 }
