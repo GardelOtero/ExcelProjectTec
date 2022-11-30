@@ -76,15 +76,13 @@ export class AppService {
 
   isValidPosition = function(position: string) {
     var error;
-    var isValid;
     try {
-      isValid = true;
-      new coordParser(position);
-      return isValid;
+
+      return new coordParser(position);
     } catch (error) {
+
       console.log(error);
-      isValid = false;
-      return isValid;
+      return null;
     }
   };
 
@@ -127,16 +125,20 @@ export class AppService {
       dfd.readExcel(file)
       .then((df: any) => {this.information = df}) //the data is saved in information
       .finally(() => {
+
         if (this.information != undefined) {
+
           this.information.print();
           this.analyzeContentDF();
         }});
     } else if(validation === 2){
       
       dfd.readCSV(file)
-      .then((df: any) => {this.information = df}) //the data is saved in information
+      .then((df: any) => {this.information = df;}) //the data is saved in information
       .finally(() => {
+
         if (this.information != undefined) {
+
           this.information.print();
           this.analyzeContentDF();
         }});
@@ -150,21 +152,35 @@ export class AppService {
   analyzeContentDF(): void {
 
     if (this.information != undefined) {
+      const stringArr: any[] = []
+      var newFeature = {
+        "type": "Feature",
+        "properties": {},
+        "geometry": {
+          "coordinates": stringArr,
+          "type": "Polygon"
+        }
+      }
+      var formatedCoord = undefined;
 
-      // const result = dfd.toJSON(this.information, {
-      //   format: "row",
-      // });
+      this.information.columns.forEach(column => {
+        //if(column == )
+      });
 
-      // console.log(result);
       const coords = this.information.at(0, "COORDENADAS")?.toString();
-      console.log(coords);
-
-      const splittedCoords = coords?.toString().split(" ")
+      const splittedCoords = coords?.toString().split(" ");
       console.log(splittedCoords);
 
       splittedCoords?.forEach(coordinate => {
-        console.log(this.isValidPosition(coordinate));
+
+        formatedCoord = this.isValidPosition(coordinate);
+        if(formatedCoord) {
+          
+          newFeature.geometry.coordinates.push([formatedCoord.getLatitude(), formatedCoord.getLongitude()]);
+        }
       });
+
+      console.log(newFeature);
     }
   }
 
