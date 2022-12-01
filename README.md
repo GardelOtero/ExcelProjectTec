@@ -1,27 +1,15 @@
-# ExcelProject
+# Módulo carga de archivo SINECTA
+Este módulo individual recibe un archivo de tipo *.xlsx* o *.csv* a través del botón **Añadir archivo**, al cual se le extraerá su información e intentará validar las coordenadas en el mismo. La finalidad de este módulo es simplificar el proceso de añadir nuevos terrenos a una simple carga de archivo.
+### *Hecho con AngularJS*
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.6.
+## Colaboradores:
+* Alam López Montoya - A01252135
+* Alejandra Margarita Castro Amarillas - A01253828
+* Fernando de Jesús Mendivil Terminel - A00232280
+* Gardel Alejandro Otero Verdugo - A01251908
 
-## Development server
+## Requerimientos mínimos
+* 
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Manual de usuario
+[Enlace a archivo en repo O gDrive](www.google.com)
