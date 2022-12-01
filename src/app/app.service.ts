@@ -152,21 +152,24 @@ export class AppService {
   analyzeContentDF(): void {
 
     if (this.information != undefined) {
-      const stringArr: any[] = []
-      var newFeature = {
-        "type": "Feature",
-        "properties": {},
-        "geometry": {
-          "coordinates": stringArr,
-          "type": "Polygon"
-        }
-      }
+
+      const propertyArray: any[] = []
+      const coordArray: any[] = []
       var formatedCoord = undefined;
+      var validationPass = true;
 
-      this.information.columns.forEach(column => {
-        //if(column == )
-      });
+      var nonValidatedInfo = dfd.toJSON(this.information);
+      
+      
 
+      //Leaflet properties
+      var popupContent = {"popupContent": this.information.at(0, "LOTE")?.toString() 
+        + " " + this.information.at(0, "CULTIVO")?.toString()}
+
+      propertyArray.push({"name": this.information.at(0, "PRODUCTOR")?.toString()});
+      propertyArray.push(popupContent);
+
+      //Validation start
       const coords = this.information.at(0, "COORDENADAS")?.toString();
       const splittedCoords = coords?.toString().split(" ");
       console.log(splittedCoords);
@@ -174,13 +177,35 @@ export class AppService {
       splittedCoords?.forEach(coordinate => {
 
         formatedCoord = this.isValidPosition(coordinate);
-        if(formatedCoord) {
+        if(formatedCoord != null) {
           
-          newFeature.geometry.coordinates.push([formatedCoord.getLatitude(), formatedCoord.getLongitude()]);
+          coordArray.push([formatedCoord.getLatitude(), formatedCoord.getLongitude()]);
+        } else {
+
+          validationPass = false;
         }
       });
 
-      console.log(newFeature);
+      if(validationPass){
+        
+        console.log("ÉXITO AL FORMATEAR, AQUÍ ESTÁ LA INFORMACIÓN VALIDADA:");
+
+        var newFeature: GeoJSON.Feature = {
+          "type": "Feature",
+          "properties": propertyArray,
+          "geometry": {
+            "coordinates": coordArray,
+            "type": "Polygon"
+          }
+        }
+        this.geojsonFeatureCollection.features.push(newFeature);
+        console.log(newFeature);
+      }
+      else{
+
+        console.log("FRACASO, AQUÍ ESTÁ LA INFORMACIÓN CRUDA DEL EXCEL EXTRAÍDA:")
+        console.log(nonValidatedInfo);
+      }
     }
   }
 
