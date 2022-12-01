@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
-import * as dfd from "danfojs";
 import * as L from 'leaflet';
-import axios from 'axios';
+import * as dfd from "danfojs";
 import { DataFrame } from 'danfojs/dist/danfojs-base';
+//import axios from 'axios';
 import * as coordParser from 'coordinate-parser';
 
 @Injectable({
@@ -10,9 +10,7 @@ import * as coordParser from 'coordinate-parser';
 })
 export class AppService {
 
-  constructor() { 
-    console.log("This is app Service Constructor");
-  }
+  constructor() {}
   //******************************** VARIABLES ********************************** */
   //Security layer if html is modified
   TYPE_XLSX: string = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
@@ -110,14 +108,10 @@ export class AppService {
 
     var polygonLayer = L.geoJSON().addTo(map);
     polygonLayer.addData(this.geojsonFeatureCollection);
-    
-    console.log("GeoJson dibujado:");
-    console.log(this.geojsonFeatureCollection);
   }
 
   readInfoToDF(file: File): void {
 
-    //console.log(file.type);
     const validation = this.isValidFile(file.type);
     
     if (validation === 1) {
@@ -172,7 +166,6 @@ export class AppService {
       //Validation start
       const coords = this.information.at(0, "COORDENADAS")?.toString();
       const splittedCoords = coords?.toString().split(" ");
-      console.log(splittedCoords);
 
       splittedCoords?.forEach(coordinate => {
 
@@ -209,16 +202,16 @@ export class AppService {
     }
   }
 
-  testAxiosGet(id: number): void{
-    axios.get('https://rickandmortyapi.com/api/character/' + id)
-          .then(function (response) {
-            console.log(response.data);
-          })
-          .catch(function (error) {
-            console.log(error);
-          })
-          .finally(function () {
-            console.log('Esto se ejecuta siempre, haya habido error o no');
-          });
-  }
+  // testAxiosGet(id: number): void{
+  //   axios.get('https://rickandmortyapi.com/api/character/' + id)
+  //         .then(function (response) {
+  //           console.log(response.data);
+  //         })
+  //         .catch(function (error) {
+  //           console.log(error);
+  //         })
+  //         .finally(function () {
+  //           console.log('Esto se ejecuta siempre, haya habido error o no');
+  //         });
+  // }
 }
