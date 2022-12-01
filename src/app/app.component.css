@@ -44,7 +44,7 @@ nav ul li:hover {
 .column {
     margin-top:0%;
     float: none;
-    background-color: grey;
+    background-color: lightgrey;
     width:100%;
     width: 250px;
     padding: 100%;
@@ -74,12 +74,12 @@ nav ul li:hover {
 */
 
 table, td, th {
-    background-color: white;
-    border: 1px solid;
+    background-color: lightgrey;
+    border: 0px solid;
 }
 
 table {
-    font-size: 25px;
+    font-size: 32px;
     width: 300%;
     border-collapse: collapse;
 }
@@ -143,5 +143,5 @@ table {
     height: 860px;
     width: 1270px;
     left: 200%;
-    top: -37.8%;
+    top: -41.6%;
 }
